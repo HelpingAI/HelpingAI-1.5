@@ -1,108 +1,26 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelpingAI </title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .response-container {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .response {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #333;
-            background-color: #fff;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            max-width: 600px;
-            box-sizing: border-box;
-            line-height: 1.6;
-            word-wrap: break-word;
-        }
-
-        .code-response {
-            white-space: pre-wrap;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #f8f9fa;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-top: 10px;
-            max-width: 600px;
-            overflow-x: auto;
-            box-sizing: border-box;
-            line-height: 1.6;
-        }
-    </style>
+    <title>HelpingAI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>HelpingAI </h1>
+    <h1>HelpingAI Assistant</h1>
     
     <form action="/generate" method="post">
-        <label for="user_input">You:</label>
-        <input type="text" name="user_input" required>
-        <button type="submit">Generate Response</button>
+        <label for="user_input">Ask me anything:</label>
+        <textarea name="user_input" placeholder="Type your question or input here..." required></textarea>
+        <button type="submit">Get Answer</button>
     </form>
 
     {% if user_input %}
-        <div class="response-container">
-            <div class="code-response">{{ response }}</div>
+        <div class="response-box">
+            <p class="ai-response">HelpingAI says: {{ response }}</p>
         </div>
     {% endif %}
+
 </body>
 </html>
